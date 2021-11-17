@@ -9,5 +9,5 @@ jobs:
     - uses: actions/checkout@master
     - name: Execute Main
       run: | 
-         ls
+         python Main.py
       
