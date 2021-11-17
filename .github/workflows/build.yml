@@ -9,5 +9,6 @@ jobs:
     - uses: actions/checkout@master
     - name: Execute Main
       run: | 
+         pip install pycryptodome
          python Main.py
       
