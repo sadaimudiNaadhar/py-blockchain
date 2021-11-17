@@ -1,7 +1,7 @@
-from BankingRecord import BankingRecord
-from Chain import Chain
-from MedicalRecord import MedicalRecord
-from CreditCard import CreditCard
+from src.BankingRecord import BankingRecord
+from src.Chain import Chain
+from src.MedicalRecord import MedicalRecord
+from src.CreditCard import CreditCard
 
 chain = Chain()
 
@@ -42,4 +42,4 @@ chain.addBlock(creditCardTransaction)
 print("Blockchain Validity: " + str(chain.isValid()))
 
 chain.showBlockChainData()
-chain.showDecryptedBlockChain()
+chain.showDecryptedBlockData()

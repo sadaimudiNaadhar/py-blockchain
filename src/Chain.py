@@ -1,13 +1,12 @@
-from AESCipher import AESCipher
-from Block import Block
-from StringUtil import StringUtil
-import Config
-
+from src.AESCipher import AESCipher
+from src.Block import Block
+from src import Config
+from src.StringUtil import StringUtil
 
 class Chain:
 
     def __init__(self) -> None:
-        self.__blocks = []
+        self.__blocks: Block = []
 
     def addBlock(self, obj: object):
 
@@ -25,7 +24,7 @@ class Chain:
 
     @staticmethod
     def getEncryptedData(obj: object):
-        return AESCipher(Config.secret).encrypt(StringUtil.getJson(obj))
+        return AESCipher(Config.getSecret()).encrypt(StringUtil.getJson(obj))
 
     def isValid(self) -> bool:
 
@@ -34,6 +33,8 @@ class Chain:
         if length < 2:
             return False
 
+        currentBlock: Block
+        
         for currentBlock in self.__blocks[length - 1:1:-1]:
 
             prevObject = self.__blocks[self.__blocks.index(currentBlock) - 1]
@@ -52,10 +53,12 @@ class Chain:
         for currentBlock in self.__blocks:
             print(currentBlock.__dict__)
 
-    def showDecryptedBlockChain(self):
+    def showDecryptedBlockData(self):
 
-        for currentBlock in self.__blocks:
+        currentBlock: Block
+        
+        for  currentBlock in self.__blocks:
 
             print("\nDecrypted block data for block #: "
                   + str(self.__blocks.index(currentBlock) + 1)
-                  + " " + AESCipher(Config.secret).decrypt(currentBlock.getData()))
+                  + " " + AESCipher(Config.getSecret()).decrypt(currentBlock.getData()))

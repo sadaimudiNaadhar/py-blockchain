@@ -1,7 +1,5 @@
 import time
-from StringUtil import StringUtil
-from AESCipher import AESCipher
-
+from src.StringUtil import StringUtil
 
 class Block:
 
