@@ -1,7 +1,7 @@
-@staticmethod
+# Get Secret
 def getSecret() -> str:
     return "shiva"
 
-@staticmethod
+# Returns a String
 def getDifficultyString() -> str:
     return "a"
