@@ -7,20 +7,20 @@ class Block:
         self.data = data
         self.previousHash = previousHash
         self.timeStamp = int(time.time())
-        self.nounce = 0
+        self.nonce = 0
         self.hash = self.calculateHash()
 
     def calculateHash(self):
 
         return StringUtil.applySha256(
             str(self.previousHash).encode() +
-            str(self.timeStamp).encode() + str(self.nounce).encode() + self.data
+            str(self.timeStamp).encode() + str(self.nonce).encode() + self.data
         )
 
     def mineBlock(self):
 
-        while self.hash[0] != "a" or self.nounce < 98765:
-            self.nounce += 1
+        while self.hash[0] != "a" or self.nonce < 98765:
+            self.nonce += 1
             self.hash = self.calculateHash()
 
         print("Block Mined!!! : " + self.hash + "\n")
