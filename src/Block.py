@@ -1,4 +1,5 @@
 import time
+from src import Config
 from src.StringUtil import StringUtil
 
 class Block:
@@ -19,7 +20,7 @@ class Block:
 
     def mineBlock(self):
 
-        while self.hash[0] != "a" or self.nonce < 98765:
+        while self.hash[0] != Config.getDifficultyString() or self.nonce < 98765:
             self.nonce += 1
             self.hash = self.calculateHash()
 

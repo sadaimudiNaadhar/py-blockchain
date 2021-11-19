@@ -44,6 +44,9 @@ class Chain:
 
             if currentBlock.previousHash != prevObject.calculateHash():
                 return False
+            
+            if currentBlock.hash[0] != Config.getDifficultyString():
+                return False
 
         return True
 
