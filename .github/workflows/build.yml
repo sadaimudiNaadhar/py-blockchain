@@ -1,0 +1,14 @@
+ 
+name: Build Output
+on: [push, workflow_dispatch]
+jobs:
+  run_script:
+    name: Run Script
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Execute Main
+      run: | 
+         pip install pycryptodome
+         python Main.py
+      
