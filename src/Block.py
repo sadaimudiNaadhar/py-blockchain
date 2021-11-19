@@ -14,12 +14,12 @@ class Block:
 
         return StringUtil.applySha256(
             str(self.previousHash).encode() +
-            bytes(self.timeStamp) + bytes(self.nounce) + self.data
+            str(self.timeStamp).encode() + str(self.nounce).encode() + self.data
         )
 
     def mineBlock(self):
 
-        while self.hash[0] > "8":
+        while self.hash[0] != "a":
             self.nounce += 1
             self.hash = self.calculateHash()
 
