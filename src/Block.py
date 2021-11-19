@@ -19,7 +19,7 @@ class Block:
 
     def mineBlock(self):
 
-        while self.hash[0] != "a":
+        while self.hash[0] != "a" or self.nounce < 98765:
             self.nounce += 1
             self.hash = self.calculateHash()
 
